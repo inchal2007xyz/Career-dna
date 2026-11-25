@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CAREER DNA helps students discover career opportunities, identify skill gaps and build personalized learning roadmaps.">
+  <title>CAREER DNA | Decode Your Future</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <a href="#" class="brand">
+        <span class="brand-icon">C</span>
+        <span>CAREER<span class="accent">DNA</span></span>
+      </a>
+
+      <p class="nav-label">WORKSPACE</p>
+      <a class="nav-link active" href="#dashboard">▦ &nbsp; Dashboard</a>
+      <a class="nav-link" href="#analyzer">⌕ &nbsp; Skill Analyzer</a>
+      <a class="nav-link" href="#roadmap">↗ &nbsp; Learning Roadmap</a>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-card">
+          <span class="sparkle">✦</span>
+          <h3>Your future starts here.</h3>
+          <p>Understand your skills. Build your next move.</p>
+        </div>
+        <p class="copyright">CAREER DNA © 2026</p>
+      </div>
+    </aside>
+
+    <main class="main" id="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL CAREER INTELLIGENCE</p>
+          <h1>Decode your <span class="accent">potential.</span></h1>
+        </div>
+        <div class="avatar">CD</div>
+      </header>
+
+      <section class="welcome">
+        <div>
+          <span class="live-dot"></span> CAREER DISCOVERY WORKSPACE
+          <h2>Build a career that matches your DNA.</h2>
+          <p>Discover where you stand, uncover your skill gaps and create a roadmap towards your dream career.</p>
+          <a href="#analyzer" class="primary-btn">Explore your career <span>→</span></a>
+        </div>
+        <div class="welcome-art">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit-core">DNA</div>
+          <span class="orbit-tag tag-one">SKILLS</span>
+          <span class="orbit-tag tag-two">GROWTH</span>
+          <span class="orbit-tag tag-three">FUTURE</span>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-icon">◎</span>
+          <p>Career roles</p>
+          <h3>05</h3>
+          <small>Explore your possibilities</small>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon">✦</span>
+          <p>Latest match score</p>
+          <h3 id="stat-score">--</h3>
+          <small id="stat-caption">Analyze to discover</small>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon">↗</span>
+          <p>Skills to develop</p>
+          <h3 id="stat-gaps">--</h3>
+          <small>Based on your target role</small>
+        </article>
+      </section>
+
+      <section class="analyzer-section" id="analyzer">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / DISCOVER YOUR PROFILE</p>
+            <h2>Career skill analyzer</h2>
+            <p>Tell us what you know and where you want to go.</p>
+          </div>
+          <span class="step-label">STEP 01</span>
+        </div>
+
+        <div class="form-card">
+          <label for="student-name">Your name</label>
+          <input id="student-name" type="text" placeholder="Enter your name">
+
+          <label for="career-role">Choose your dream career</label>
+          <select id="career-role">
+            <option value="frontend">Frontend Developer</option>
+            <option value="data">Data Analyst</option>
+            <option value="python">Python Developer</option>
+            <option value="cyber">Cybersecurity Analyst</option>
+            <option value="uiux">UI/UX Designer</option>
+          </select>
+
+          <label for="skills">Your current skills</label>
+          <p class="field-hint">Enter skills separated by commas. Example: HTML, CSS, Python</p>
+          <textarea id="skills" rows="4" placeholder="HTML, CSS, JavaScript, Python..."></textarea>
+
+          <button id="analyze-btn" class="primary-btn full-btn">Analyze my career DNA <span>→</span></button>
+          <p id="error-message" class="error-message" role="alert"></p>
+        </div>
+      </section>
+
+      <section class="results-section hidden" id="results">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / YOUR CAREER INSIGHTS</p>
+            <h2>Your analysis report</h2>
+            <p id="result-intro">Here is your career readiness overview.</p>
+          </div>
+          <button class="outline-btn" id="download-btn">↓ Download report</button>
+        </div>
+
+        <div class="result-grid">
+          <article class="score-card">
+            <p class="eyebrow">CAREER MATCH SCORE</p>
+            <div class="score-ring" id="score-ring">
+              <div>
+                <strong id="score-value">0%</strong>
+                <span>Skill match</span>
+              </div>
+            </div>
+            <h3 id="score-title">Your career journey begins.</h3>
+            <p id="score-description">Build your skills to improve your match.</p>
+          </article>
+
+          <article class="skills-card">
+            <h3>Skill breakdown</h3>
+            <div>
+              <div class="skill-heading"><span>Matched skills</span><strong id="matched-count">0</strong></div>
+              <div class="progress-track"><div id="matched-bar" class="progress-fill"></div></div>
+            </div>
+            <div>
+              <div class="skill-heading"><span>Missing skills</span><strong id="missing-count">0</strong></div>
+              <div class="progress-track"><div id="missing-bar" class="progress-fill missing-fill"></div></div>
+            </div>
+            <h4>Skills you already have</h4>
+            <div id="matched-list" class="chips"></div>
+            <h4>Skills to develop</h4>
+            <div id="missing-list" class="chips"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="roadmap-section" id="roadmap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / YOUR NEXT MOVE</p>
+            <h2>Personalized learning roadmap</h2>
+            <p>Turn your skill gaps into actionable learning goals.</p>
+          </div>
+        </div>
+        <div id="roadmap-content" class="roadmap-placeholder">
+          <span>✦</span>
+          <h3>Your roadmap is waiting.</h3>
+          <p>Complete the skill analysis to unlock your personalized roadmap.</p>
+        </div>
+      </section>
+
+      <footer>
+        <span>CAREER DNA © 2026</span>
+        <span>Designed to help you grow. ✦</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
+
